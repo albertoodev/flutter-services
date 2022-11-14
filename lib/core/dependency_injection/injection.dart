@@ -1,8 +1,9 @@
 import 'package:get_it/get_it.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:http/http.dart' as http;
+import 'package:services/services/geo_locator/data/data_sources/geo_locator.dart';
+import 'package:services/services/geo_locator/data/repo/location_repo.dart';
+import 'package:services/services/geo_locator/data/repo/main_location_repo.dart';
+import 'package:services/services/geo_locator/presentation/logic/use_cases/current_location.dart';
 import '/services/geo_locator/presentation/logic/providers/location_provider.dart';
 
 class Get {
@@ -26,4 +27,38 @@ class Get {
   static LocationProvider get locationProvider => LocationProvider(
         getLocation: _instance(),
       );
+
+  static Future<void> init() async {
+    // ======= app =======
+    //_instance.registerSingleton(() => App());
+    // ======= use cases =======
+    //..location..
+    _instance.registerLazySingleton(
+      () => GetCurrentLocation(
+        repository: _instance(),
+      ),
+    );
+    // ======= repositories =======
+    //..location..
+    _instance.registerLazySingleton<MainLocationRepository>(
+      () => LocationRepository(
+        geoLocatorDataSource: _instance(),
+      ),
+    );
+    // ======= data sources =======
+    //..location..
+    _instance.registerLazySingleton<GeoLocatorDateSource>(
+      () => GeoLocatorDataSourceImp(),
+    );
+    // ======= core =======
+    //..network checker..
+    // _instance
+    //     .registerLazySingleton<NetworkInfo>(() => NetworkChecker(_instance()));
+    // ======= external =======
+    //..http..
+    // _instance.registerLazySingleton(() => http.Client());
+    //..internet connection checker..
+    // _instance.registerLazySingleton(
+    //     () => InternetConnectionChecker.createInstance());
+  }
 }
