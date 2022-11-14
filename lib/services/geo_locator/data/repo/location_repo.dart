@@ -4,7 +4,6 @@ import '/services/geo_locator/data/data_sources/geo_locator.dart';
 import '/core/errors/exceptions.dart';
 import '/core/errors/failures.dart';
 
-import '/services/geo_locator/geo_locator.dart';
 import 'main_location_repo.dart';
 
 class LocationRepository implements MainLocationRepository {
