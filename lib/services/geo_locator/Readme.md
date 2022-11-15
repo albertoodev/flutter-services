@@ -8,4 +8,4 @@ add this lines in `/android/app/main/AndroidManifest.xml`
 ```
 ## Usage
 
-TODO: Enjoy
+...enjoy...
