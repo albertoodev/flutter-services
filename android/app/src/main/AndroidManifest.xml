@@ -7,7 +7,7 @@
         <!-- GEO LOCATOR-->
         <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="put ur google map api here"/>
+        android:value="put ur google map api here.."/>
         <!--=====================-->
         <activity
             android:name=".MainActivity"
