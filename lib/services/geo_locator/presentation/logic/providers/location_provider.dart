@@ -1,4 +1,6 @@
 /// project files
+import 'package:services/logs.dart';
+
 import '/services/geo_locator/presentation/logic/use_cases/current_location.dart';
 import '/core/errors/failures.dart';
 
