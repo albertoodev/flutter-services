@@ -25,7 +25,9 @@ class MyApp extends StatelessWidget {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: FloatingActionButton.extended(
           label: const Text('Get Current Location'),
-          onPressed: () => Navigate.off(const GetLocationScreen()),
+          onPressed: () {
+            // Navigate.off(const GetLocationScreen());
+          },
         ),
       ),
     );

@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
         "dartz"
-    ]
+    ],
+    "cmake.configureOnOpen": false,
+    "cmake.sourceDirectory": "${workspaceFolder}/linux"
 }
